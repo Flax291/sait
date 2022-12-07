@@ -1,6 +1,6 @@
 
 :root{
-    --main-color:#14003F;
+    --main-color:#0c031f;
     --second-color:#46336D;
     --accent-color:white;
 }
@@ -17,14 +17,15 @@
 
 body{
     background-color: var(--main-color);
+    overflow: auto;
 }
 
 .navbar{
-    width: 100vw;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 10px;
+    margin-bottom: 18rem;
 }
 
 .navbar-part{
@@ -49,13 +50,14 @@ body{
     box-shadow: 0px 0px 25px 10px #70628b,
     inset  0px 0px 25px 10px #70628b;
 
-    border-right: 1px solid white;
-    border-top: 1px solid white;
-    border-bottom: 1px solid white;
+    border-right: 3px solid white;
+    border-top: 3px solid white;
+    border-bottom: 3px solid white;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     padding-left:3rem;
     margin-left: -1rem;
+    
 }
 
 .navbar-right_part{
@@ -78,11 +80,93 @@ body{
     display: flex;
     align-items: center;
     justify-content: center; 
+    transition: all 0.4s ;
+    opacity: 0.6;
+}
+
+.contact-block:hover a{
+    opacity: 1;
 }
 
 .contact-block a i{
     color: var(--accent-color);
-    opacity: 0.6;
     font-size: 1.5rem;
     margin-right: 0.5rem;
+}
+
+.speakers-block{
+width: 100%;
+display: grid;
+grid-template-columns: 25%  25% 25% 25%;
+}
+
+.first-speaker-block{
+    width: 100%;
+    background-color: var(--accent-color);
+    color:var(--second-color);
+    height: 500px;
+    padding: 2rem;
+}
+
+.first-speaker-block h2{
+    font-size:5rem ;
+    margin-bottom:3rem;
+    font-weight: 600;
+}
+
+.first-speaker-block i{
+    font-size:10rem ;
+    margin-left:2rem;
+}
+
+.speaker-block{
+    background-color: var(--accent-color);
+    color:var(--second-color);
+    height: 500px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column-reverse;
+    overflow: hidden;
+}
+
+.speaker-block.f{
+    background-image: url("https://248006.selcdn.ru/LandGen/desktop_2_5d5244a2a960fcfd389dee3e2e33cf35ce07b58c16527769047828.webp");
+}
+
+.speaker-block.s{
+    background-image: url("https://248006.selcdn.ru/LandGen/desktop_2_b5d7e403a327a3ece7826106dbbc59806a186b5516323240762452.webp");
+}
+
+.speaker-block.t{
+    background-image: url("https://248006.selcdn.ru/LandGen/desktop_2_7ce8c294145f886ea70cf355b692381e21cf344e15891058423812.webp");
+}
+
+.speaker-name {
+    font-size: 1.6rem;
+    font-weight: 800;
+    padding-top:1rem;
+    margin-bottom:1rem;
+}
+
+.speaker-info{
+    padding: 20px;
+    position: relative;
+    bottom:-120px;
+    color:var(--accent-color);
+    background: rgb(2,0,36);
+    background: linear-gradient(0deg, rgba(2,0,36,1) 9%, rgba(0,0,0,0.6) 74%, rgba(255,255,255,0) 100%);
+    transition: all 0.4s;
+    cursor: pointer;
+}
+
+.speaker-facts{
+    font-size: 1rem;
+    font-weight: 400;
+    height: 100px;
+}
+
+.speaker-block:hover .speaker-info{
+    bottom:0;
 }
