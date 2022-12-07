@@ -371,3 +371,132 @@ body {
 .map-info-contacts .contact-block {
     margin-bottom: 15px;
 }
+
+.gallery-block{
+    display: grid;
+    grid-template-rows:300px 300px ;
+    grid-template-columns: 50% 25% 25%;
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+    flex-wrap: wrap;
+}
+.media-block{
+    position:relative;
+    background-position: center;
+    background-repeat:no-repeat;
+    background-size: cover;
+    
+}
+
+#media1{
+    background-position: center;
+    
+background-image:url(https://kartinkin.net/uploads/posts/2022-03/1647342753_2-kartinkin-net-p-virtualnie-kartinki-2.jpg) ;
+
+
+grid-row:span 2;
+
+}
+#media2{
+    
+    grid-column: span 2;
+    background-image: url(https://phonoteka.org/uploads/posts/2021-07/1625488275_23-phonoteka-org-p-pikchi-na-rabochii-stol-krasivo-oboi-23.png);
+    }
+
+#media3{
+    
+    background-image: url(https://static.tildacdn.com/tild6137-3335-4466-b232-646434353637/uqs0kzpibxrtbt-vbebo.jpeg);
+
+}
+
+#media4{
+    
+    background-image: url(https://cdn.techwireasia.com/wp-content/uploads/2020/05/shutterstock_776789038.png);
+}
+.media-item{
+    background-color: rgba(0, 0, 0, 0.322);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: all 0.4s;
+    display: flex;
+    flex-direction: column;
+    
+   
+
+}
+
+.media-item:hover{
+    opacity: 1;
+    backdrop-filter: blur(10px);
+}
+
+.media-item span{
+    color: white;
+}
+
+#title1{
+    padding-left: 20px;
+    font-weight: 600;
+    font-size: 60px;
+    
+}
+#about1{
+    padding-left: 45px;
+    font-weight: 400;
+    font-size: 25px;
+}
+#title2{
+    font-size: 40px;
+    padding-left: 25%;
+    font-weight: 600;
+    
+}
+#about2{
+    padding-left: 35px;
+    font-weight: 400;
+    font-size: 20px;
+}
+#title3{
+    font-size: 30px;
+    padding-left: 12px;
+    font-weight: 600;
+
+}
+#about3{
+    padding-left: 22px;
+    font-weight: 300;
+    font-size: 20px;
+}
+#title4{
+    font-size: 30px;
+    padding-left: 12px;
+    font-weight: 600;
+}
+#about4{
+    padding-left: 22px;
+    font-weight: 300;
+    font-size: 20px;
+}
+#date1{
+    padding-left: 40%;
+    font-weight: 600;
+    font-size: 30px;
+}
+#date2{
+    padding-left: 40%;
+    font-weight: 600;
+    font-size: 30px;
+}
+#date3{
+    padding-left: 30%;
+    font-weight: 400;
+    font-size: 20px;
+}
+#date4{
+    padding-left: 30%;
+    font-weight: 400;
+    font-size: 20px;
+}
