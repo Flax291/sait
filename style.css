@@ -25,6 +25,7 @@ body{
     align-items: center;
     justify-content: space-between;
     padding: 10px;
+    margin-bottom: 18rem;
 }
 
 .navbar-part{
@@ -85,4 +86,43 @@ body{
     opacity: 0.6;
     font-size: 1.5rem;
     margin-right: 0.5rem;
+}
+.gallery-block{
+    display: grid;
+    grid-template-rows:400px 400px ;
+    grid-template-columns: 50% 25% 25%;
+    flex-wrap: wrap;
+}
+.media-block{
+    position:relative;
+    background-position: center;
+    background-repeat:no-repeat;
+    background-size: cover;
+    
+}
+
+#media1{
+    background-position: center;
+    
+background-image:url(https://kartinkin.net/uploads/posts/2022-03/1647342753_2-kartinkin-net-p-virtualnie-kartinki-2.jpg) ;
+
+
+grid-row:span 2;
+
+}
+#media2{
+    
+    grid-column: span 2;
+    background-image: url(https://phonoteka.org/uploads/posts/2021-07/1625488275_23-phonoteka-org-p-pikchi-na-rabochii-stol-krasivo-oboi-23.png);
+    }
+
+#media3{
+    
+    background-image: url(https://static.tildacdn.com/tild6137-3335-4466-b232-646434353637/uqs0kzpibxrtbt-vbebo.jpeg);
+
+}
+
+#media4{
+    
+    background-image: url(https://cdn.techwireasia.com/wp-content/uploads/2020/05/shutterstock_776789038.png);
 }
