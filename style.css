@@ -17,6 +17,7 @@
 body {
     background-color: var(--main-color);
     overflow: auto;
+    height: 100vh;
 }
 
 .navbar {
@@ -159,7 +160,7 @@ body {
     width: 100%;
     background-color: var(--accent-color);
     color: var(--second-color);
-    height: 300px;
+    height: 500px;
     padding: 2rem;
 }
 
@@ -179,9 +180,9 @@ body {
 .speaker-block {
     background-color: var(--accent-color);
     color: var(--second-color);
-    height: 300px;
+    height: 500px;
     background-size: cover;
-    background-position: center;
+    background-position: top;
     background-repeat: no-repeat;
     display: flex;
     flex-direction: column-reverse;
@@ -211,7 +212,7 @@ body {
 .speaker-info {
     padding: 25px;
     position: relative;
-    bottom: -120px;
+    bottom: -125px;
     color: var(--accent-color);
     background: rgb(2, 0, 36);
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 9%, rgba(0, 0, 0, 0.6) 64%, rgba(255, 255, 255, 0) 100%);
@@ -329,7 +330,7 @@ body {
     z-index: 100;
     position: absolute;
     padding: 20px;
-    width: 50%;
+    width: 45%;
     color: var(--accent-color);
     top: 100px;
     left: 40px;
@@ -339,12 +340,12 @@ body {
 }
 
 .map-info-block h2 {
-    font-size: 1.8rem;
+    font-size: 1.7rem;
     opacity: 0.8;
 }
 
 .map-info-block h1 {
-    padding-left: 10px;
+    padding-left: 25px;
     font-size: 1.8rem;
     font-weight: 600;
     margin-bottom: 0.4rem;
@@ -372,131 +373,166 @@ body {
     margin-bottom: 15px;
 }
 
-.gallery-block{
+.gallery-block {
     display: grid;
-    grid-template-rows:300px 300px ;
+    grid-template-rows: 300px 300px;
     grid-template-columns: 50% 25% 25%;
     width: 80%;
     margin-right: auto;
     margin-left: auto;
     flex-wrap: wrap;
+    margin-bottom: 7rem;
+
 }
-.media-block{
-    position:relative;
+
+.media-block {
+    position: relative;
     background-position: center;
-    background-repeat:no-repeat;
+    background-repeat: no-repeat;
     background-size: cover;
-    
+    overflow: hidden;
 }
 
-#media1{
-    background-position: center;
-    
-background-image:url(https://kartinkin.net/uploads/posts/2022-03/1647342753_2-kartinkin-net-p-virtualnie-kartinki-2.jpg) ;
-
-
-grid-row:span 2;
+#media1 {
+    background-image: url(img/event-1.jpg);
+    grid-row: span 2;
 
 }
-#media2{
-    
+
+#media2 {
     grid-column: span 2;
-    background-image: url(https://phonoteka.org/uploads/posts/2021-07/1625488275_23-phonoteka-org-p-pikchi-na-rabochii-stol-krasivo-oboi-23.png);
-    }
+    background-image: url(img/event-2.jpg);
+}
 
-#media3{
-    
-    background-image: url(https://static.tildacdn.com/tild6137-3335-4466-b232-646434353637/uqs0kzpibxrtbt-vbebo.jpeg);
+#media3 {
+    background-image: url(img/event-3.jpg);
 
 }
 
-#media4{
-    
-    background-image: url(https://cdn.techwireasia.com/wp-content/uploads/2020/05/shutterstock_776789038.png);
+#media4 {
+    background-image: url(img/event-4.jpg);
 }
-.media-item{
+
+.media-item {
     background-color: rgba(0, 0, 0, 0.322);
     position: absolute;
     height: 100%;
     width: 100%;
-    opacity: 0;
     transition: all 0.4s;
     display: flex;
     flex-direction: column;
-    
-   
-
+    padding: 5%;
+    cursor: pointer;
 }
 
-.media-item:hover{
-    opacity: 1;
+.media-item:hover {
     backdrop-filter: blur(10px);
 }
 
-.media-item span{
+#item1 {
+    left: -100%;
+}
+
+.media-block:hover #item1 {
+    left: 0;
+}
+
+#item2 {
+    top: -100%;
+}
+
+.media-block:hover #item2 {
+    top: 0;
+}
+
+
+#item3 {
+    bottom: -100%;
+}
+
+.media-block:hover #item3 {
+    bottom: 0;
+}
+
+
+#item4 {
+    right: -100%;
+}
+
+.media-block:hover #item4 {
+    right: 0;
+}
+
+.media-item span {
     color: white;
 }
 
-#title1{
-    padding-left: 20px;
+.media-title {
+    text-transform: uppercase;
+    margin-bottom: 2%;
+}
+
+.media-date {
+    margin-bottom: 5%;
+}
+
+.media-about {
+    margin-bottom: 5%;
+}
+
+#title1 {
     font-weight: 600;
     font-size: 60px;
-    
+
 }
-#about1{
-    padding-left: 45px;
+
+#about1 {
     font-weight: 400;
     font-size: 25px;
 }
-#title2{
+
+#title2 {
     font-size: 40px;
-    padding-left: 25%;
-    font-weight: 600;
-    
-}
-#about2{
-    padding-left: 35px;
-    font-weight: 400;
-    font-size: 20px;
-}
-#title3{
-    font-size: 30px;
-    padding-left: 12px;
     font-weight: 600;
 
 }
-#about3{
-    padding-left: 22px;
-    font-weight: 300;
-    font-size: 20px;
-}
-#title4{
-    font-size: 30px;
-    padding-left: 12px;
-    font-weight: 600;
-}
-#about4{
-    padding-left: 22px;
-    font-weight: 300;
-    font-size: 20px;
-}
-#date1{
-    padding-left: 40%;
-    font-weight: 600;
-    font-size: 30px;
-}
-#date2{
-    padding-left: 40%;
-    font-weight: 600;
-    font-size: 30px;
-}
-#date3{
-    padding-left: 30%;
+
+#about2 {
     font-weight: 400;
     font-size: 20px;
 }
-#date4{
-    padding-left: 30%;
+
+#title3 {
+    font-size: 30px;
+    font-weight: 600;
+
+}
+
+#about3 {
+    font-weight: 300;
+    font-size: 15px;
+}
+
+#title4 {
+    font-size: 30px;
+    font-weight: 600;
+}
+
+#about4 {
+    font-weight: 300;
+    font-size: 15px;
+}
+
+#date1,
+#date2 {
     font-weight: 400;
-    font-size: 20px;
+    font-size: 25px;
+    text-decoration: underline;
+}
+
+#date3,
+#date4 {
+    font-weight: 400;
+    font-size: 18px;
+    text-decoration: underline;
 }
