@@ -1,6 +1,6 @@
 :root {
     --main-color: #0c031f;
-    --second-color: #201d27;
+    --second-color: #1b142e;
     --accent-color: white;
 }
 
@@ -15,9 +15,7 @@
 }
 
 body {
-    background-color: var(--main-color);
     overflow: auto;
-    height: 100vh;
 }
 
 .navbar {
@@ -41,77 +39,18 @@ body {
 .name-block {
     position: absolute;
     padding: 1rem;
-    font-size: 8rem;
-    top: 3.5rem;
+    font-size: 12rem;
+    top: 2.5rem;
     left: -1rem;
     font-weight: 800;
     color: var(--accent-color);
     background-color: rgba(238, 238, 238, 0);
 
-    box-shadow: 0px 0px 25px 10px #70628b,
-        inset 0px 0px 25px 10px #70628b;
-
-    border-right: 3px solid white;
-    border-top: 3px solid white;
-    border-bottom: 3px solid white;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
     padding-left: 3rem;
     margin-left: -1rem;
-
-    animation: 2s laser infinite;
+    opacity: 0;
+    animation: 2s laser forwards;
     cursor: pointer;
-}
-
-@keyframes laser {
-    0% {
-        border-right: 3px solid white;
-        border-top: 3px solid white;
-        border-bottom: 3px solid white;
-        box-shadow: 0px 0px 25px 10px #70628b,
-            inset 0px 0px 25px 10px #70628b;
-    }
-
-    50% {
-        border-right: 3px solid white;
-        border-top: 3px solid white;
-        border-bottom: 3px solid white;
-        box-shadow: 0px 0px 25px 10px #70628b,
-            inset 0px 0px 25px 10px #70628b;
-    }
-
-    60% {
-        border-right: 3px solid rgba(255, 255, 255, 0.5);
-        border-top: 3px solid rgba(255, 255, 255, 0.5);
-        border-bottom: 3px solid rgba(255, 255, 255, 0.5);
-        box-shadow: 0px 0px 15px 5px #70628b,
-            inset 0px 0px 15px 5px #70628b;
-    }
-
-
-    70% {
-        border-right: 3px solid white;
-        border-top: 3px solid white;
-        border-bottom: 3px solid white;
-        box-shadow: 0px 0px 25px 10px #70628b,
-            inset 0px 0px 25px 10px #70628b;
-    }
-
-    80% {
-        border-right: 3px solid rgba(255, 255, 255, 0.5);
-        border-top: 3px solid rgba(255, 255, 255, 0.5);
-        border-bottom: 3px solid rgba(255, 255, 255, 0.5);
-        box-shadow: 0px 0px 15px 5px #70628b,
-            inset 0px 0px 15px 5px #70628b;
-    }
-
-    100% {
-        border-right: 3px solid white;
-        border-top: 3px solid white;
-        border-bottom: 3px solid white;
-        box-shadow: 0px 0px 25px 10px #70628b,
-            inset 0px 0px 25px 10px #70628b;
-    }
 }
 
 .navbar-right_part {
@@ -134,7 +73,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.4s;
     opacity: 0.6;
 }
 
@@ -162,6 +100,7 @@ body {
     color: var(--second-color);
     height: 500px;
     padding: 2rem;
+    overflow: hidden;
 }
 
 .first-speaker-block h2 {
@@ -170,10 +109,20 @@ body {
     font-weight: 600;
     width: 100%;
     text-align: center;
+    margin-left: 120%;
+}
+
+.first-speaker-block.active h2 {
+    margin-left: 0;
 }
 
 .first-speaker-block i {
     font-size: 10rem;
+    margin-left: -40rem;
+    transition: all 1.5s;
+}
+
+.first-speaker-block.active i {
     margin-left: 2rem;
 }
 
@@ -246,30 +195,49 @@ body {
     justify-content: flex-start;
     align-items: flex-end;
     flex-direction: column;
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.37);
+    position: relative;
+    transition: all 0.6s;
+    top: 2rem;
+    left: 2rem;
+}
+
+.about-block.active {
+    top: 0rem;
+    left: 0rem;
+    box-shadow: 2rem 2rem 5px rgba(0, 0, 0, 0.37);
 }
 
 .about-block .label-block {
     padding: 1.3rem;
-    background-color: var(--accent-color);
-    box-shadow: 0px 0px 30px 10px black;
     width: fit-content;
     position: relative;
-    top: -3rem;
-    right: -3rem;
+    top: -4rem;
+    left: 8rem;
     border-radius: 10px;
+    transition: all 0.6s;
+    height: 1rem;
+    top: -6rem;
+    left: 6rem;
+}
+
+
+.about-block.active .label-block {
+    top: -4rem;
+    left: 8rem;
 }
 
 .about-block .label-block h2 {
     font-weight: 600;
-    color: var(--second-color);
-    font-size: 1.5rem;
+    color: var(--accent-color);
+    font-size: 5rem;
     text-transform: uppercase;
 }
 
 .about-block .label-block h2 span {
     font-weight: 800;
-    color: var(--second-color);
-    font-size: 1.5rem;
+    color: var(--accent-color);
+    font-size: 5rem;
     text-transform: uppercase;
 }
 
@@ -323,6 +291,7 @@ body {
 
 .map-block {
     position: relative;
+    margin-bottom: 4rem;
 }
 
 .map-info-block {
@@ -337,6 +306,7 @@ body {
     border-radius: 10px;
     display: grid;
     grid-template-columns: 50% 50%;
+    overflow: hidden;
 }
 
 .map-info-block h2 {
@@ -349,6 +319,11 @@ body {
     font-size: 1.8rem;
     font-weight: 600;
     margin-bottom: 0.4rem;
+    margin-left: -20rem;
+}
+
+.map-info-block.active h1 {
+    margin-left: 0rem;
 }
 
 .map-info-block .contact-block a {
@@ -389,6 +364,12 @@ body {
     border-radius: 10px;
     height: 2rem;
     z-index: 100;
+    opacity: 0;
+    transition: all 0.8s;
+}
+
+.gallery .label-block.active {
+    opacity: 1;
 }
 
 .gallery .label-block h2 {
@@ -398,15 +379,28 @@ body {
     text-transform: uppercase;
 }
 
+.gallery .label-block.active+.gallery-block {
+    box-shadow: 2rem 2rem 5px 5px rgba(0, 0, 0, 0.332);
+    top: 0px;
+    left: 0px;
+}
+
 
 .gallery-block {
     display: grid;
     grid-template-rows: 300px 300px;
     grid-template-columns: 50% 25% 25%;
+    position: relative;
+    top: 2rem;
+    left: 2rem;
     width: 80%;
     margin-right: auto;
     margin-left: auto;
     z-index: 10;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.6s;
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.332);
 }
 
 .media-block {
@@ -420,17 +414,19 @@ body {
 #media1 {
     background-image: url(img/event-1.jpg);
     grid-row: span 2;
+    border-right: 3px solid white;
 
 }
 
 #media2 {
     grid-column: span 2;
     background-image: url(img/event-2.jpg);
+    border-bottom: 3px solid white;
 }
 
 #media3 {
     background-image: url(img/event-3.jpg);
-
+    border-right: 3px solid white;
 }
 
 #media4 {
@@ -485,6 +481,7 @@ body {
 
 .media-block:hover #item4 {
     right: 0;
+    width: 101%;
 }
 
 .media-item span {
@@ -559,4 +556,39 @@ body {
     font-weight: 400;
     font-size: 18px;
     text-decoration: underline;
+}
+
+h2,
+h1,
+span,
+.speaker-block {
+    opacity: 0;
+    transition: all 1s;
+    animation: 2s laser forwards;
+}
+
+a {
+    opacity: 0;
+    transition: all 1s;
+    animation: 2s laser-a;
+}
+
+@keyframes laser {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes laser-a {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0.5;
+    }
 }
