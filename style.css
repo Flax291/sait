@@ -592,3 +592,34 @@ a {
         opacity: 0.5;
     }
 }
+.request-block{
+    border: #E9EFF6;
+
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 10px;
+    overflow: hidden;
+
+
+}
+.request-block input{
+    display: flex;
+    flex-direction: column;
+    position: center;
+
+    font-weight: 100;
+    font-size: 20px;
+    background: #E9EFF6;
+    border-radius: 20px;
+
+}
+.button{
+
+}
+.request-block h1 {
+    padding-left: 12%;
+    font-family: sans-serif;
+    font-weight: 500;
+    font-size: 35px;
+    color: rgba(0, 41, 246, 0.61);
+}
