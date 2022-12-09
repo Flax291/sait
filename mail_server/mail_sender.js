@@ -1,12 +1,14 @@
-class MailSender {
+const {DB} = require("./db");
 
+class MailSender {
+    DB = DB;
     static createTransporter = (nodemailer) => {
         MailSender._transporter = nodemailer.createTransport({
             port: 465,               // true for 465, false for other ports
-            host: "smtp.gmail.com",
+            host: "smtp.mail.ru",
             auth: {
-                user: 'fedorichev16@gmail.com',
-                pass: 'cjcimfbeswhgekbn',
+                user: 'vr_days_official@mail.ru',
+                pass: 'KD3i1PpbmqZGMeLBVAyt',
             },
             secure: true,
         });
@@ -14,7 +16,7 @@ class MailSender {
 
     static  send = async (req, res) => {
         const mailData = {
-            from: 'fedorichev16@gmail.com',  // sender address
+            from: 'vr_days_official@mail.ru',  // sender address
             to: req.query.to,   // list of receivers
             subject: 'Ждем тебя на VR DAYS 2023',
             text: 'That was easy!',
@@ -153,15 +155,21 @@ class MailSender {
                 </tr></tbody></table></td></tr></tbody></table>`
         };
 
-        MailSender._transporter.sendMail(mailData,  (err, info) => {
-            if (err) {
-                console.log(err);
-                res.status(200).send("Fail");
-            } else {
-                console.log(info);
-                res.status(200).send("OK");
-            }
-        });
+        DB.insert(req.query.to, req.query.name, () => {
+            MailSender._transporter.sendMail(mailData, (err, info) => {
+                if (err) {
+                    console.log(err);
+                    res.status(200).send("Fail");
+                } else {
+                    console.log(info);
+                    res.status(200).send("OK");
+                }
+            });
+        })
+    }
+
+    static getCountUsers = async (req, res) => {
+        DB.getCount((count) => res.status(200).send(count + ""));
     }
 }
 

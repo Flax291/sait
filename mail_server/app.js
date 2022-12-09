@@ -12,9 +12,9 @@ const port = process.env.PORT || 5000;
 
 MailSender.createTransporter(nodemailer);
 
-app.post('/post_mail', MailSender.send);
+app.get('/post_mail', MailSender.send);
 
-
+app.get('/get_count', MailSender.getCountUsers);
 
 app.listen(port, () => {
     console.log(`Server listening on port ${port}`);
