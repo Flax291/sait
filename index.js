@@ -41,3 +41,18 @@ document.addEventListener("scroll", (e) => {
 
 
 aboutBlock.classList.add("active");
+
+
+function sendMail(name, email) {
+    Email.send({
+        SecureToken: "0ee7d58d-8ed9-44a2-a5cc-41e4cc86a011",
+        To: email,
+        From: "fedorichev16@gmail.com",
+        Subject: "This is the subject",
+        Body: `<strong>${name}</strong>`
+    }).then(
+        message => alert(message)
+    );
+}
+
+sendMail("lev", "fedorichev16@gmail.com");
