@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npm install nedb nodemailer body-parser express",
+    "build": "npm install nedb --save nodemailer body-parser express",
     "start": "node app.js"
   },
   "keywords": [],

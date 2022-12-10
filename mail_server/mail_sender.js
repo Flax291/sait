@@ -71,9 +71,9 @@ class MailSender {
                                         
                                         <tr>
                                             <td align="center" style="padding-bottom:40px;font-family:Verdana,Helvetica,Arial,sans-serif;font-size:16px">
-                           
-                                                <a href="http://192.168.88.253:5000/good_mail?from=${req.query.to}&name=${req.query.name}" style="background-color:#27292d;border-radius:6px;color:#ffffff;display:inline-block;font-family:Verdana,Helvetica,Arial,sans-serif;font-size:16px;line-height:50px;text-align:center;text-decoration:none;width:200px" target="_blank" data-saferedirecturl="">Подтвердить</a>
-                              
+                         
+                                                <a href="https://vr-days.onrender.com/good_mail?from=${req.query.to}&name=${req.query.name}" style="background-color:#27292d;border-radius:6px;color:#ffffff;display:inline-block;font-family:Verdana,Helvetica,Arial,sans-serif;font-size:16px;line-height:50px;text-align:center;text-decoration:none;width:200px" target="_blank" data-saferedirecturl="">Подтвердить</a>
+                             
                                             </td>
                                         </tr>
 
@@ -179,13 +179,14 @@ class MailSender {
         DB.getCount((count) => res.status(200).send(count + ""));
     }
     static addUser = async (req, res) => {
-        DB.insert(req.query.from, req.query.name, () => {});
-        console.log("попали");
+        DB.insert(req.query.from, req.query.name, () => {
+        });
+
+        console.log("Подтвердили " + req.query.from);
 
         res.writeHead(200, {'Content-Type': 'text/html'});
         const myReadStream = fs.createReadStream(__dirname + '/template.html', 'utf8');
         myReadStream.pipe(res);
-        //res.send("<h1>Спасибо за подтверждение!</h1>");
     }
 }
 
