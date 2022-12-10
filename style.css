@@ -602,7 +602,7 @@ a {
     position: relative;
     top: 6rem;
     left: 20rem;
-    width: calc(99% - 1rem);
+    width: fit-content;
     border-radius: 10px;
     height: 8rem;
     z-index: 100;
