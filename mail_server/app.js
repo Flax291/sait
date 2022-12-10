@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
+const cors = require('cors');
 const {MailSender} = require("./mail_sender");
 const {DB} = require("./db");
 const app = express();
@@ -10,6 +11,7 @@ for (let i = 0; i < 1241; i++) {
     });
 }
 
+app.use(cors());
 app.use(bodyParser.json());
 
 app.use(bodyParser.urlencoded({extended: false}));
