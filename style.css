@@ -596,7 +596,6 @@ a {
 .application {
     margin-bottom: 7rem;
     width: 100%;
-    overflow: hidden;
 }
 
 .application .label-block {
