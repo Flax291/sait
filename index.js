@@ -9,9 +9,8 @@ const application = document.getElementById("application");
 document.body.style = `background: rgb(59,16,84);
 background: linear-gradient(45deg, rgba(59,16,84,1) 0%, rgba(11,22,61,1) 0%, rgba(11,85,82,1) 100%);`
 
-document.addEventListener("scroll", (e) => {
+setInterval(() => {
     const y = window.pageYOffset;
-
 
     if (y >= 0 && y < 400) {
         aboutBlock.classList.add("active");
@@ -44,7 +43,7 @@ document.addEventListener("scroll", (e) => {
     }
     document.body.style = `background: rgb(59,16,84);
     background: linear-gradient(${45 + y / 2500 * 100}deg, rgba(59,16,84,1) 0%, rgba(11,22,61,1) ${y / 2500 * 100}%, rgba(11,85,82,1) 100%);`
-});
+}, 100);
 
 
 aboutBlock.classList.add("active");
