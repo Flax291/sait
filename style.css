@@ -593,9 +593,10 @@ a {
     }
 }
 
-.application{
-    margin-bottom:7rem;
+.application {
+    margin-bottom: 7rem;
     width: 100%;
+    overflow: hidden;
 }
 
 .application .label-block {
@@ -624,16 +625,17 @@ a {
     margin-bottom: 5rem;
     position: relative;
     top: 1rem;
-    left:100rem;
+    width: 2rem;
+    left: 100rem;
     text-transform: uppercase;
 }
 
-.application-form{
+.application-form {
     height: 500px;
     background-color: var(--second-color);
     width: 80%;
     margin-right: auto;
-    margin-left:auto;
+    margin-left: auto;
     border-radius: 20px;
 
     position: relative;
