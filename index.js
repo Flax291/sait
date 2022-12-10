@@ -3,6 +3,7 @@ const aboutBlock = document.getElementById("about-block");
 const gallaryLabel = document.getElementById("gallery-label");
 const speakers = document.getElementById("speakers");
 const mapContacts = document.getElementById("map-contacts");
+const application = document.getElementById("application");
 
 
 document.body.style = `background: rgb(59,16,84);
@@ -30,7 +31,13 @@ document.addEventListener("scroll", (e) => {
         gallaryLabel.classList.remove("active");
     }
 
-    if (window.pageYOffset > 1700 && window.pageYOffset < 2300) {
+    if (window.pageYOffset > 1800 && window.pageYOffset < 2400) {
+        application.classList.add("active");
+    } else {
+        application.classList.remove("active");
+    }
+
+    if (window.pageYOffset > 2400 && window.pageYOffset < 3000) {
         mapContacts.classList.add("active");
     } else {
         mapContacts.classList.remove("active");
@@ -41,3 +48,18 @@ document.addEventListener("scroll", (e) => {
 
 
 aboutBlock.classList.add("active");
+
+const getCount = () => {
+    let xhr = new XMLHttpRequest();
+    xhr.open('GET', 'https://vr-days.onrender.com/get_count');
+    xhr.send();
+    xhr.onload = () => {
+        if (xhr.status !== 200) { // HTTP ошибка?
+            // обработаем ошибку
+            alert('Ошибка: ' + xhr.status);
+        }
+        document.getElementById("application-label-count").textContent = xhr.response;
+    }
+}
+
+getCount();
