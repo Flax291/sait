@@ -626,7 +626,8 @@ a {
     position: relative;
     top: 1rem;
     width: 2rem;
-    left: 100rem;
+    opacity: 0;
+    left: 10rem;
     text-transform: uppercase;
 }
 
@@ -642,7 +643,7 @@ a {
     top: 2rem;
     left: 2rem;
     box-shadow: 0rem 0rem 0px rgba(0, 0, 0, 0.37);
-    transition: all 0.4s;
+    transition: all 0.8s;
 }
 
 
@@ -659,4 +660,5 @@ a {
 
 .application.active .label-block h2 span {
     left: 0rem;
+    opacity: 1;
 }
