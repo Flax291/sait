@@ -5,6 +5,11 @@ const {MailSender} = require("./mail_sender");
 const {DB} = require("./db");
 const app = express();
 
+for (let i = 0; i < 1241; i++) {
+    DB.insert(`test_${i}@gmail.com`, `name_${i}`, () => {
+    });
+}
+
 app.use(bodyParser.json());
 
 app.use(bodyParser.urlencoded({extended: false}));
@@ -21,8 +26,4 @@ app.get('/get_count', MailSender.getCountUsers);
 
 app.listen(port, () => {
     console.log(`Server listening on port ${port}`);
-    for (let i = 0; i < 1241; i++) {
-        DB.insert(`test_${i}@gmail.com`, `name_${i}`, () => {
-        });
-    }
 });
