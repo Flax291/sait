@@ -11,7 +11,6 @@ class DBController {
             func();
         });
     }
-
     static getCount = (func) => {
         db.find({}, (err, docs) => {
             func(docs.length);
