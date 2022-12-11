@@ -632,14 +632,13 @@ a {
 
 .application-form {
     display: grid;
-
+    justify-content: space-around;
     height: 500px;
     background-color: var(--second-color);
-    width: 80%;
+    width: 60%;
     margin-right: auto;
     margin-left: auto;
     border-radius: 20px;
-
     position: relative;
     top: 2rem;
     left: 2rem;
@@ -662,5 +661,64 @@ a {
 .application.active .label-block h2 span {
     left: 0rem;
     opacity: 1;
+}
+.application-button button {
+    font-size: 1rem;
+    margin-top:50px;
+    margin-left:auto;
+    margin-right: auto;
+    width: 200px;
+    height: 70px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.btn.active-btn-danya {
+    opacity: 0;
+    animation: 0.7s btn-anim forwards;
+    background: #4b062d;
+}
+
+@keyframes btn-anim {
+    30% {
+        margin-top: -0.1rem;
+    }
+}
+
+.application-form label {
+    color: white;
+    font-size: 1.8rem;
+    margin-top: 50px;
+    margin-right: auto;
+    top: 40px;
+    transition: all 0.6s;
+
+}
+.application-form input{
+    color:white;
+    height: auto;
+    width: auto;
+    outline-width: 0;
+    background-color: #4b062d00;
+    border: none;
+    border-bottom: 2px solid var(--accent-color);
+    font-size: 1.3rem;
+
+}
+
+.form_input:focus-visible,
+.form_input:valid {
+    height: auto;
+    width: auto;
+    padding: 5px;
+    font-size: 1.3rem;
+    outline-width: 0px;
+    border: none;
+    border-bottom: 2px solid var(--accent-color);
+    caret-color: var(--accent-color);
+    background-color: #4b062d00;
+    color: rgba(255, 255, 255);
+    transition: all 0.4s;
 }
 

@@ -44,7 +44,9 @@ setInterval(() => {
     document.body.style = `background: rgb(59,16,84);
     background: linear-gradient(${45 + y / 2500 * 100}deg, rgba(59,16,84,1) 0%, rgba(11,22,61,1) ${y / 2500 * 100}%, rgba(11,85,82,1) 100%);`
 }, 100);
-
+document.getElementById("btn").addEventListener("click", () => {
+    document.getElementById("btn").classList.add("active-btn-danya");
+})
 
 aboutBlock.classList.add("active");
 
@@ -62,3 +64,8 @@ const getCount = () => {
 }
 
 getCount();
+const getRequest = () => {
+    let xhr = new XMLHttpRequest();
+    xhr.open('GET', ' https://vr-days.onrender.com/');
+    
+}
