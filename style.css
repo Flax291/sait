@@ -721,4 +721,8 @@ a {
     color: rgba(255, 255, 255);
     transition: all 0.4s;
 }
-
+.info-mail{
+    color: white;
+    margin-bottom: -20px;
+    font-size: 1rem;
+}

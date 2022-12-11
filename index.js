@@ -67,5 +67,25 @@ getCount();
 const getRequest = () => {
     let xhr = new XMLHttpRequest();
     xhr.open('GET', ' https://vr-days.onrender.com/');
-    
+    xhr.send();
+    xhr.onload=() =>{
+        if(xhr.status !==200){
+            alert('Ошибка'+ xhr.status);
+        }
+
+    }
+}
+async function chekinfo () {
+    let number = document.getElementById('number').value
+    if (/^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/.test(number) === false) {
+        return alert("Неверный формат номера телефона")
+    }
+    let email = document.getElementById('mail').value
+    if (/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/.test(email) === false) {
+        return alert("Неверный формат почты")
+    }
+    let newUser = {
+        number: number,
+        email: email
+    }
 }
