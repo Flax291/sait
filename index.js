@@ -103,6 +103,9 @@ const badResponse = () => {
 const goodResponse = () => {
     // TODO: действие при хорошем ответе
     // Вот тут можно уже и кнопку спрятать и сказать чтобы спам проверили 
+    document.getElementById("error-mail").textContent = "";
+    document.getElementById("error-response").textContent = "";
+    document.getElementById("error-name").textContent = "";
 }
 
 const sendMail = () => {
