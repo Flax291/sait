@@ -41,7 +41,7 @@ setInterval(() => {
             application.classList.remove("active");
         }
 
-        if (y > 2400 && y < 3000) {
+        if (y > 2400 && y < 3300) {
             mapContacts.classList.add("active");
         } else {
             mapContacts.classList.remove("active");
@@ -77,3 +77,59 @@ const getCount = () => {
 }
 
 getCount();
+
+const checkName = () => {
+    // TODO: Вернуть true если правильное имя, иначе false
+}
+
+const badName = () => {
+    // TODO: действие при неправильном имени, вывести сообщение под или над полем инпута
+    document.getElementById("error-name").textContent = "Некорректное имя";
+}
+
+const checkMail = () => {
+    // TODO: Вернуть true если правильная почта, иначе false
+}
+
+const badMail = () => {
+    // TODO: действие при неправильном имени, вывести сообщение под или над полем инпута
+    document.getElementById("error-mail").textContent = "Некорректная почта";
+}
+
+const badResponse = () => {
+    // TODO: действие при ошибке запроса, например интернета нет
+    document.getElementById("error-response").textContent = "Произошла непредвиденная ошибка";
+}
+const goodResponse = () => {
+    // TODO: действие при хорошем ответе
+    // Вот тут можно уже и кнопку спрятать и сказать чтобы спам проверили 
+}
+
+const sendMail = () => {
+    const name = document.getElementById("name").value;
+    const mail = document.getElementById("mail").value;
+
+    if (checkName(name)) {
+        badName();
+    }
+    if (checkMail(mail)) {
+        badMail();
+    }
+
+    let xhr = new XMLHttpRequest();
+    xhr.open('GET', `https://vr-days.onrender.com/post_mail?to=${mail}&name=${name}`);
+    xhr.send();
+    xhr.onload = () => {
+        if (xhr.status !== 200) {
+            badResponse();
+        }
+        if (xhr.response == "OK")
+            goodResponse();
+    }
+
+}
+
+
+document.getElementById("send-btn").addEventListener("click", () => {
+    sendMail();
+});
