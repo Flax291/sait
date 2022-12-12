@@ -64,28 +64,33 @@ const getCount = () => {
 }
 
 getCount();
-const getRequest = () => {
+
+
+// Добавляем переменные и используем их при построении запроса 
+const getRequest = ({name, email}) => {
     let xhr = new XMLHttpRequest();
-    xhr.open('GET', ' https://vr-days.onrender.com/');
+    xhr.open('GET', ` https://vr-days.onrender.com/send_mail?to=${email}&name=${name}`);
     xhr.send();
     xhr.onload=() =>{
         if(xhr.status !==200){
             alert('Ошибка'+ xhr.status);
+            //TODO : перестроить страницу, показать что у пользователя нет интернета например и т.д.
         }
 
+        if(xhr.response == "OK"){
+            //TODO : перестроить страницу, показать что отправилось ЧТОБЫ ПРОВЕРИЛ ПОЧТУ, ведь туда отправлено письмо
+        }
     }
 }
+
+// async ????? Что такое ???
 async function chekinfo () {
-    let number = document.getElementById('number').value
-    if (/^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/.test(number) === false) {
-        return alert("Неверный формат номера телефона")
-    }
+
     let email = document.getElementById('mail').value
+    let name = document.getElementById('name').value
+
     if (/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/.test(email) === false) {
-        return alert("Неверный формат почты")
+        //TODO: Не ALERT а нормальная запись под полем!!!! , видел хоть где то алерты на существующих сайтах?
     }
-    let newUser = {
-        number: number,
-        email: email
-    }
+    return {name, email};
 }
