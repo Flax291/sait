@@ -17,8 +17,7 @@
 
 
 
-/*Для мобилки*/
-
+/*Для мобилки*/ф
 @media(min-width: 200px) and (max-width: 700px){
     body {
         overflow-y: auto;
@@ -1273,4 +1272,165 @@
         left: 0rem;
         opacity: 1;
     }
+}
+
+.application {
+    margin-bottom: 7rem;
+    width: 100%;
+}
+
+.application .label-block {
+    position: relative;
+    top: 6rem;
+    left: 20rem;
+    width: fit-content;
+    border-radius: 10px;
+    height: 8rem;
+    z-index: 100;
+    transition: all 0.8s;
+    opacity: 0;
+}
+
+.application .label-block h2 {
+    font-weight: 700;
+    color: var(--accent-color);
+    font-size: 5rem;
+    text-transform: uppercase;
+}
+
+.application .label-block h2 span {
+    font-weight: 900;
+    color: var(--accent-color);
+    font-size: 7rem;
+    margin-bottom: 5rem;
+    position: relative;
+    top: 1rem;
+    width: 2rem;
+    opacity: 0;
+    left: 10rem;
+    text-transform: uppercase;
+}
+
+.application-form {
+    display: grid;
+    align-content: center;
+    justify-content: space-around;
+    height: 500px;
+    background-color: var(--second-color);
+    width: 60%;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 20px;
+    position: relative;
+    top: 2rem;
+    left: 2rem;
+    box-shadow: 0rem 0rem 0px rgba(0, 0, 0, 0.37);
+    transition: all 0.8s;
+}
+
+
+.application.active .application-form {
+    top: 0rem;
+    left: 0rem;
+    box-shadow: 2rem 2rem 5px rgba(0, 0, 0, 0.37);
+}
+
+.application-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.application.active .label-block {
+    opacity: 1;
+}
+
+.application.active .label-block h2 span {
+    left: 0rem;
+    opacity: 1;
+}
+
+.application-button button {
+    font-size: 1rem;
+    margin-top: 10px;
+    width: 200px;
+    height: 70px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.btn.active-btn-danya {
+    opacity: 0;
+    animation: 0.7s btn-anim forwards;
+    background: #4b062d;
+}
+
+@keyframes btn-anim {
+    30% {
+        margin-top: -0.1rem;
+    }
+
+.application-form label {
+    color: white;
+    font-size: 1.8rem;
+    margin-top: 50px;
+    margin-right: auto;
+    top: 40px;
+    transition: all 0.6s;
+
+}
+
+.application-form input {
+    color: white;
+    height: auto;
+    width: auto;
+    outline-width: 0;
+    background-color: #4b062d00;
+    border: none;
+    border-bottom: 2px solid var(--accent-color);
+    font-size: 1.3rem;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+
+
+
+.alert_response {
+    color: #ce1cbf;
+    font-size: 0.8em;
+    height: 1rem;
+}
+
+.alert_name {
+    padding-bottom: 2px;
+    color: #ce1c1c;
+    font-size: 0.8em;
+    height: 1rem;
+}
+
+.alert_mail {
+    padding-bottom: 2px;
+    color: #ce1c1c;
+    font-size: 0.8em;
+    height: 1rem;
+}
+
+.alert_btn {
+    color: greenyellow;
+    font-size: 0.9em;
+    height: 1rem;
+}
+
+#l_name,
+#l_mail {
+    text-transform: uppercase;
+    position: relative;
+    left: -2rem;
+    top: 0rem;
+}
+
 }

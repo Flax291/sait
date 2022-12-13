@@ -78,56 +78,81 @@ const getCount = () => {
 
 getCount();
 
-const checkName = () => {
-    // TODO: Вернуть true если правильное имя, иначе false
+const checkName = (name) => {
+    const nameRegex = /^[A-Za-zА-Яа-яёЁ]+(?:[-'\s][A-Za-zА-Яа-яёЁ]+)*$/;
+    const prov = nameRegex.test(name);
+    if (name.length < 3 || prov === false) {
+        return false;
+    } else {
+        return true;
+    }
+
 }
 
-const badName = () => {
+const badName = (name) => {
     // TODO: действие при неправильном имени, вывести сообщение под или над полем инпута
     document.getElementById("error-name").textContent = "Некорректное имя";
 }
 
-const checkMail = () => {
+const checkMail = (email) => {
+    const emailRegex = /^(([0-9A-Za-z]{1}[-0-9A-z\.]{1,}[0-9A-Za-z]{1})|([0-9А-Яа-я]{1}[-0-9А-я\.]{1,}[0-9А-Яа-я]{1}))@([-A-Za-z]{1,}\.){1,2}[-A-Za-z]{2,}$/;
+    const mpr = emailRegex.test(email);
+    if (email.length < 6 || mpr === false) {
+        return false;
+    } else {
+        return true;
+    }
     // TODO: Вернуть true если правильная почта, иначе false
 }
 
-const badMail = () => {
+const badMail = (email) => {
     // TODO: действие при неправильном имени, вывести сообщение под или над полем инпута
     document.getElementById("error-mail").textContent = "Некорректная почта";
+
 }
 
 const badResponse = () => {
     // TODO: действие при ошибке запроса, например интернета нет
-    document.getElementById("error-response").textContent = "Произошла непредвиденная ошибка";
+    const mas = document.getElementById("error-response").textContent = "Что-то произошло не так,но мы уже с этим разбираемся♥";
+
 }
 const goodResponse = () => {
-    // TODO: действие при хорошем ответе
-    // Вот тут можно уже и кнопку спрятать и сказать чтобы спам проверили 
+    // TODO: действие при хорошем ответе Мы вас ждем!Проверяйте вкладку "спам"!
+    document.getElementById("welcome").textContent = "Мы вас ждем!Проверяйте вкладку спам!";
     document.getElementById("error-mail").textContent = "";
     document.getElementById("error-response").textContent = "";
     document.getElementById("error-name").textContent = "";
+    document.getElementById("error-response").textContent = "";
 }
 
 const sendMail = () => {
     const name = document.getElementById("name").value;
     const mail = document.getElementById("mail").value;
 
-    if (checkName(name)) {
+    document.getElementById("error-mail").textContent = "";
+    document.getElementById("error-response").textContent = "";
+    document.getElementById("error-name").textContent = "";
+    document.getElementById("error-response").textContent = "";
+
+    if (!checkName(name)) {
         badName();
+        return;
     }
-    if (checkMail(mail)) {
+    if (!checkMail(mail)) {
         badMail();
+        return;
     }
 
     let xhr = new XMLHttpRequest();
     xhr.open('GET', `https://vr-days.onrender.com/post_mail?to=${mail}&name=${name}`);
     xhr.send();
     xhr.onload = () => {
-        if (xhr.status !== 200) {
+        if (xhr.status !== 200 || xhr.response == "Fail") {
             badResponse();
         }
-        if (xhr.response == "OK")
+        if (xhr.response == "OK") {
             goodResponse();
+        }
     }
 
 }
