@@ -155,17 +155,18 @@
     </div>
     <div class="application-form">
 
-            <label for="number" class="form_number">Номер</label>
-            <input type="text" class="form_input" required="required" id="number">
+            <label for="name" class="form_number" id="l_name">Имя</label>
+            <input type="text" class="form_input"  id="name">
+             <div class="alert_name" id="error-name"> </div>
 
-
-            <label for="mail" class="from_mail">Почта</label>
-            <input type="email" class="form_input" required="required" id="mail">
+            <div class="alert_response" id="error-response"></div>
+            <label for="mail" class="from_mail" id="l_mail">Почта</label>
+            <input type="email" class="form_input"  id="mail">
+            <div class="alert_mail"id='error-mail'></div>
         <div class="application-button">
-        <button class="btn" id="btn" type="button">Я готов!</button>
-            <div class="information">
-                <span class="info-mail"> Проверяйте вкладку спам!</span>
-            </div>
+            <div class="alert_btn" id="welcome"></div>
+        <button onclick="checkMail(badMail)" class="btn" id="send-btn"  type="button">Я готов!</button>
+
         </div>
     </div>
 </div>

@@ -10,45 +10,58 @@ document.body.style = `background: rgb(59,16,84);
 background: linear-gradient(45deg, rgba(59,16,84,1) 0%, rgba(11,22,61,1) 0%, rgba(11,85,82,1) 100%);`
 
 setInterval(() => {
+
     const y = window.pageYOffset;
 
-    if (y >= 0 && y < 400) {
-        aboutBlock.classList.add("active");
+    if (window.screen.width < 700) {
+
     } else {
-        aboutBlock.classList.remove("active");
+
+        if (y >= 0 && y < 400) {
+            aboutBlock.classList.add("active");
+        } else {
+            aboutBlock.classList.remove("active");
+        }
+
+        if (y > 400 && y < 1300) {
+            speakers.classList.add("active");
+        } else {
+            speakers.classList.remove("active");
+        }
+
+        if (y > 1000 && y < 1900) {
+            gallaryLabel.classList.add("active");
+        } else {
+            gallaryLabel.classList.remove("active");
+        }
+
+        if (y > 1700 && y < 2400) {
+            application.classList.add("active");
+        } else {
+            application.classList.remove("active");
+        }
+
+        if (y > 2400 && y < 3300) {
+            mapContacts.classList.add("active");
+        } else {
+            mapContacts.classList.remove("active");
+        }
     }
 
-    if (y > 400 && y < 1300) {
-        speakers.classList.add("active");
-    } else {
-        speakers.classList.remove("active");
-    }
-
-    if (y > 1000 && y < 1900) {
-        gallaryLabel.classList.add("active");
-    } else {
-        gallaryLabel.classList.remove("active");
-    }
-
-    if (y > 1700 && y < 2400) {
-        application.classList.add("active");
-    } else {
-        application.classList.remove("active");
-    }
-
-    if (y > 2400 && y < 3000) {
-        mapContacts.classList.add("active");
-    } else {
-        mapContacts.classList.remove("active");
-    }
     document.body.style = `background: rgb(59,16,84);
     background: linear-gradient(${45 + y / 2500 * 100}deg, rgba(59,16,84,1) 0%, rgba(11,22,61,1) ${y / 2500 * 100}%, rgba(11,85,82,1) 100%);`
 }, 100);
-document.getElementById("btn").addEventListener("click", () => {
-    document.getElementById("btn").classList.add("active-btn-danya");
-})
+
 
 aboutBlock.classList.add("active");
+if (window.screen.width < 700) {
+    aboutBlock.classList.add("active");
+    speakers.classList.add("active");
+    gallaryLabel.classList.add("active");
+    application.classList.add("active");
+    mapContacts.classList.add("active");
+
+}
 
 const getCount = () => {
     let xhr = new XMLHttpRequest();
@@ -64,28 +77,78 @@ const getCount = () => {
 }
 
 getCount();
-const getRequest = () => {
-    let xhr = new XMLHttpRequest();
-    xhr.open('GET', ' https://vr-days.onrender.com/');
-    xhr.send();
-    xhr.onload=() =>{
-        if(xhr.status !==200){
-            alert('Ошибка'+ xhr.status);
-        }
+
+const checkName = (name) => {
+    const nameRegex = /^[A-Za-zА-Яа-яёЁ]+(?:[-'\s][A-Za-zА-Яа-яёЁ]+)*$/;
+    const prov=nameRegex.test(name);
+    if (name.length<3 ||prov===false){badName(name);} else {goodResponse(name)}
+
+}
+
+const badName = (name) => {
+
+    // TODO: действие при неправильном имени, вывести сообщение под или над полем инпута
+    document.getElementById("error-name").textContent = "Некорректное имя";
+}
+
+const checkMail =(email) => {
+    const emailRegex = /^(([0-9A-Za-z]{1}[-0-9A-z\.]{1,}[0-9A-Za-z]{1})|([0-9А-Яа-я]{1}[-0-9А-я\.]{1,}[0-9А-Яа-я]{1}))@([-A-Za-z]{1,}\.){1,2}[-A-Za-z]{2,}$/;
+    const mpr=emailRegex.test(email);
+    if (email.length<6 || mpr===false)
+    {badMail(email);} else {goodResponse(email)
 
     }
+
+    // TODO: Вернуть true если правильная почта, иначе false
 }
-async function chekinfo () {
-    let number = document.getElementById('number').value
-    if (/^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/.test(number) === false) {
-        return alert("Неверный формат номера телефона")
-    }
-    let email = document.getElementById('mail').value
-    if (/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/.test(email) === false) {
-        return alert("Неверный формат почты")
-    }
-    let newUser = {
-        number: number,
-        email: email
-    }
+
+const badMail = (email) => {
+    // TODO: действие при неправильном имени, вывести сообщение под или над полем инпута
+    document.getElementById("error-mail").textContent = "Некорректная почта";
+
 }
+
+const badResponse = () => {
+    // TODO: действие при ошибке запроса, например интернета нет
+    const mas =document.getElementById("error-response").textContent = "Что-то произошло не так,но мы уже с этим разбираемся♥";
+
+}
+const goodResponse = () => {
+    // TODO: действие при хорошем ответе Мы вас ждем!Проверяйте вкладку "спам"!
+
+
+    document.getElementById("welcome").textContent = "Мы вас ждем!Проверяйте вкладку спам!";
+    document.getElementById("error-mail").textContent = "";
+    document.getElementById("error-response").textContent = "";
+    document.getElementById("error-name").textContent = "";
+    document.getElementById("error-response").textContent = "";
+}
+
+const sendMail = () => {
+    const name = document.getElementById("name").value;
+    const mail = document.getElementById("mail").value;
+
+    if (checkName(name)) {
+        badName();
+    }
+    if (checkMail(mail)) {
+        badMail();
+    }
+
+    let xhr = new XMLHttpRequest();
+    xhr.open('GET', `https://vr-days.onrender.com/post_mail?to=${mail}&name=${name}`);
+    xhr.send();
+    xhr.onload = () => {
+        if (xhr.status !== 200) {
+            badResponse();
+        }
+        if (xhr.response == "OK")
+            goodResponse();
+    }
+
+}
+
+
+document.getElementById("send-btn").addEventListener("click", () => {
+    sendMail();
+});

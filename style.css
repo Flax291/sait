@@ -632,6 +632,7 @@ a {
 
 .application-form {
     display: grid;
+    align-content: center;
     justify-content: space-around;
     height: 500px;
     background-color: var(--second-color);
@@ -707,22 +708,28 @@ a {
 
 }
 
-.form_input:focus-visible,
-.form_input:valid {
-    height: auto;
-    width: auto;
-    padding: 5px;
-    font-size: 1.3rem;
-    outline-width: 0px;
-    border: none;
-    border-bottom: 2px solid var(--accent-color);
-    caret-color: var(--accent-color);
-    background-color: #4b062d00;
-    color: rgba(255, 255, 255);
-    transition: all 0.4s;
+
+
+
+.alert_response{
+    color: #ce1cbf;
+    font-size: 0.8em;
 }
-.info-mail{
-    color: white;
-    margin-bottom: -20px;
-    font-size: 1rem;
+.alert_name{
+    padding-bottom:2px;
+    color: #ce1c1c;
+    font-size: 0.8em;
+}
+.alert_mail{
+    padding-bottom:2px;
+    color: #ce1c1c;
+    font-size: 0.8em;
+}
+.alert_btn{
+    color: greenyellow;
+    font-size: 0.9em;
+}
+#l_name,
+#l_mail{
+    text-decoration: underline;
 }
