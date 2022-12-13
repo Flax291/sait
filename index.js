@@ -129,7 +129,7 @@ const sendMail = () => {
     const name = document.getElementById("name").value;
     const mail = document.getElementById("mail").value;
 
-    ocument.getElementById("welcome").textContent = "";
+    document.getElementById("welcome").textContent = "";
     document.getElementById("error-mail").textContent = "";
     document.getElementById("error-response").textContent = "";
     document.getElementById("error-name").textContent = "";
